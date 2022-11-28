@@ -1,14 +1,16 @@
-import { Injectable } from "@nestjs/common";
+import { forwardRef, Inject, Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { async } from "rxjs";
+import { SocketClient } from "src/socket/socket-client";
 import { Message } from "./message.model";
 
 @Injectable()
 export class MessageService {
 
     constructor(
-        @InjectModel('Message') private readonly messageModel : Model<Message>
+        @InjectModel('Message') private readonly messageModel : Model<Message>,
+       
     ){}
 
 

@@ -20,14 +20,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
   <script>
     alert("deneme")
-    const socket = io("http://localhost:3000/message")
 
+
+    const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000/message",
+    methods: ["GET", "POST"],
+  },
+});
+
+
+
+
+    const socket = io("http://localhost:3000/message", { transports : ['websocket'] })
+io.on("connection",function(socket) {
+  console.log("baglandi kuruldu : " + socket.id)
+})
 const message = document.getElementById('message');
 const sender = document.getElementById('sender');
 const messages = document.getElementById('messages');
 
 const handleSubmitNewMessage = () => {
-    console.log("deneme"+message.value)
+    console.log("deneme"+message.value+sender.value + socket.id)
   socket.emit('message', { data: message.value ,sender: sender.data})
 }
 

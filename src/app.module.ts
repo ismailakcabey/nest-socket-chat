@@ -6,13 +6,18 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { MessageModule } from './message/message.module';
+import { GatewayModule } from './gateway/gateway.module';
+import { SocketModule } from './socket/socket.module';
 
 @Module({
   imports: [
+    
     MongooseModule.forRoot(
-      'url'
+      'mongodb+srv://ismailakcabey:nodejs@denemedatabase.an06h.mongodb.net/order?retryWrites=true&w=majority'
     ),
-    MessageModule
+    MessageModule,
+    SocketModule,
+    GatewayModule
   ],
   controllers: [AppController],
   providers: [AppService],

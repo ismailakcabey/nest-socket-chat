@@ -31,11 +31,15 @@
     "@nestjs/serve-static": "^3.0.0",
     "@nestjs/typeorm": "^9.0.1",
     "@nestjs/websockets": "^9.2.0",
+    "axios": "^1.2.0",
     "cors": "^2.8.5",
+    "http-server": "^14.1.1",
+    "nodemon": "^2.0.20",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "save": "^2.9.0"
+    "save": "^2.9.0",
+    "socket.io-client": "^4.5.4"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
